@@ -45,6 +45,18 @@ public class Main {
 
         video1.play();
 
+        //-------------------------IMMAGINE-----------------------------
+
+        System.out.println("inserisci la luminosità:");
+        int luminositaImmagine = Integer.parseInt(scanner.nextLine());
+
+        Immagine immagine1 = new Immagine(luminositaImmagine);
+
+
+        System.out.println("Luminosità: " + immagine1.getLuminosita());
+
+        immagine1.show();
+
         scanner.close();
     }
 }
