@@ -1,62 +1,42 @@
 package entities;
 
+import interfaces.Play;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        //-------------------------AUDIO-----------------------------
 
-        System.out.println("Inserisci il titolo della canzone: ");
-        String titoloAudio = scanner.nextLine();
-        System.out.println("Inserisci il tempo di registrazione: ");
-        int durataAudio = Integer.parseInt(scanner.nextLine());
-        System.out.println("Inserisci il volume: ");
-        int volumeAudio = Integer.parseInt(scanner.nextLine());
-
-        Audio traccia1 = new Audio(titoloAudio, durataAudio, volumeAudio);
-
-        System.out.println("Titolo: " + traccia1.titolo );
-        System.out.println("Durata: " + traccia1.getDurata() + " secondi" );
-        System.out.println("Volume: " + traccia1.getVolume());
-
-        traccia1.play();
-        System.out.println("----------------------------");
-
-        //-------------------------VIDEO-----------------------------
-
-        System.out.println("Inserisci il titolo del video: ");
-        String titoloVideo = scanner.nextLine();
-        System.out.println("Inserisci la durata del video: ");
-        int durataVideo = Integer.parseInt(scanner.nextLine());
-        System.out.println("Inserisci il volume del video: ");
-        int volumeVideo = Integer.parseInt(scanner.nextLine());;
-        System.out.println("Inserisci la luminosità del video: ");
-        int luminositaVideo = Integer.parseInt(scanner.nextLine());
-
-        Video video1 = new Video(titoloVideo, durataVideo, volumeVideo, luminositaVideo);
-
-        System.out.println("Titolo: " + video1.titolo );
-        System.out.println("Durata: " + video1.getDurata() + " secondi" );
-        System.out.println("Volume: " + video1.getVolume());
-        System.out.println("Luminosità: " + video1.getLuminosita());
-
-        video1.play();
-
-        //-------------------------IMMAGINE-----------------------------
-
-        System.out.println("inserisci la luminosità:");
-        int luminositaImmagine = Integer.parseInt(scanner.nextLine());
-
-        Immagine immagine1 = new Immagine(luminositaImmagine);
+        PlayerMultimediale[] elementi = new PlayerMultimediale[5];
+        elementi[0] = new Audio("November Rain", 6, 10);
+        elementi[1] = new Audio("Master Of Puppets", 4, 8);
+        elementi[2] = new Video("Avengers", 10, 10, 15);
+        elementi[3] = new Video("Il Corvo", 5, 7, 10);
+        elementi[4] = new Immagine("Foto Profilo", 20);
 
 
-        System.out.println("Luminosità: " + immagine1.getLuminosita());
+        while (true) {
+            System.out.println("Inserisci un numero da 1 a 5 oppure 0 per uscire: ");
+            int scelta = scanner.nextInt();
 
-        immagine1.show();
+            if (scelta == 0) {
+                System.out.println("Grazie per averci scelto, arrivederci!!!");
+                break;
+            } else if (scelta >= 1 && scelta <= 5) {
+
+                PlayerMultimediale elementoScelto = elementi[scelta - 1];
+                if (elementoScelto != null) {
+                    ((Play) elementoScelto).play();
+                }
+            } else {
+                System.out.println("Indice non valido.");
+
+            }
+        }
 
         scanner.close();
     }
+
+
 }
