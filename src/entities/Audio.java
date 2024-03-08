@@ -30,12 +30,11 @@ public class Audio extends PlayerMultimediale {
 
     @Override
     public void play() {
-
-        for(int i = 0; i < volume; i++){
-            System.out.println("!");
+        for (int i = 0; i < durata; i++) {
+            for (int j = 0; j < volume; j++) {
+                System.out.print("!");
+            }
+            System.out.println("Il titolo della canzone è: " + titolo);
         }
-        System.out.println("Il titolo della canzone è: " + titolo);
-
-
     }
 }
