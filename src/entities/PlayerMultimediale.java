@@ -1,4 +1,10 @@
 package entities;
+import interfaces.Riproduzione;
 
-public class PlayerMultimediale {
+abstract class PlayerMultimediale implements Riproduzione {
+    protected String titolo;
+
+    public PlayerMultimediale(String titolo) {
+        this.titolo = titolo;
+    }
 }
