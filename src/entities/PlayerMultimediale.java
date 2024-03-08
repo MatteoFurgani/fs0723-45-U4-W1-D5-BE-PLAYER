@@ -8,4 +8,8 @@ abstract class PlayerMultimediale {
         this.titolo = titolo;
     }
 
+
+    public void play() {
+
+    }
 }

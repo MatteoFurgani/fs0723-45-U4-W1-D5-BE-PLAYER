@@ -31,8 +31,6 @@ public class Video extends PlayerMultimediale implements Durata, Play, Volume, L
                 System.out.print("!");
             }
             System.out.print(" ");
-
-
             for (int k = 0; k < luminosita; k++) {
                 System.out.print("*");
             }
